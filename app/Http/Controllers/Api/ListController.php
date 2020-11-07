@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Controllers\Controller;
+use App\Lists;
 
 class ListController extends Controller {
 	// TODO:DBに保存したい
@@ -12,7 +13,8 @@ class ListController extends Controller {
 
 	public function index() {
 		// TODO:DBから取得
-		return response()->json(json_decode($this->json));
+		$list = Lists::find(1);
+		return response()->json(json_decode($list->json));
 	}
 
 	public function store(Request $request) {
